@@ -18,15 +18,15 @@ Quick Start
 ----
 ```R
 library(scXCL)
-# XCL_caudalfin is an example expression matrix from XCL project.
-> data(XCL_caudalfin)
-> dim(XCL_caudalfin)
-[1] 2000   380
-# 2000 genes expression value of 380 cells
+# XCL_skin is an example expression matrix from XCL project.
+> data(xcl_skin)
+> dim(xcl_skin)
+[1] 14809   200
+# 14809 genes expression value of 200 cells
 
 # scXCL has two parameters , single cell expression matrix(scdata) and 
 # the number of most similar cell types
-> XCL_result <- scXCL(scdata = XCL_caudalfin, numbers_plot = 3)
+> XCL_result <- scXCL(scdata = xcl_skin, numbers_plot = 3)
 ```
 
 The return of scXCL() is a list which contains 4 parts.
@@ -36,10 +36,10 @@ The return of scXCL() is a list which contains 4 parts.
 * scHCL_probility: the top n relevant cell types for each query cell
 
 ```R
-# open shiny for visualize result for scHCL
-scHCL_vis(hcl_result)
+# open shiny for visualize result for scXCL
+scXCL_vis(xcl_result)
 ```
 
 scXCL_vis() provides a bref function for visualizing and downloading of scXCL results
 
-![scXCL.png](https://i.loli.net/2020/07/05/8PQ3seyUIaEHZXf.png)
+![scXCL.png](https://s2.loli.net/2022/02/11/UIYtGvnPpBHjuA1.png)
