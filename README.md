@@ -1,5 +1,5 @@
 # scXCL
-#### A tool defines cell types in zebrafish based on single-cell digital expression
+#### A tool defines cell types in Xenopus based on single-cell digital expression
 At first scXCL is a breif R package for large scale data(large DGE) from scXCL online function [Xenopus Cell Landscape](http://bis.zju.edu.cn/XCL/index.html) ,to alleviate burdens of our main Server.
 
 Now we add a UI for visulizing the scXCL reuslt.
