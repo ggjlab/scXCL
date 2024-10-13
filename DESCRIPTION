@@ -3,13 +3,13 @@ Type: Package
 Title: Xenopus Cell Landscape
 Version: 0.1.0
 Author: Guoji Guo
-Maintainer: Yincong Zhou <yczhou@zju.edu.cn>
+Maintainer: Lifeng Ma <12218219@zju.edu.cn>
 Description: Xenopus Cell Landscape R package for single cell mapping
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: plotly,reshape2,dplyr, shiny, DT,pheatmap,shinythemes
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 NeedsCompilation: no
 Packaged: 2022-02-11 13:01:01 UTC; ggj
 Depends: R (>= 3.5.0)

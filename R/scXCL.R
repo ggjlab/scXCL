@@ -4,20 +4,34 @@
 #' description
 #' @param scdata data.frame or matrix, col correspond to cells and rows correspond to genes
 #' @param numbers_plot default is 3, number, it will return top "numbers_plot" records in the plot
+#' @param Tropicalis Set to TRUE to select Xenopus tropicalis; default is FALSE, which selects Xenopus laevis for input data
 #' @importFrom reshape2 melt
 #' @export
 
-scXCL <- function(scdata,numbers_plot=3){
-  tst.expr <- data.frame(matrix(nrow = dim(ref.expr)[1],ncol=dim(scdata)[2]))
-  rownames(tst.expr)<-rownames(ref.expr)
-  colnames(tst.expr)<-colnames(scdata)
+scXCL <- function(scdata,numbers_plot=3,Tropicalis=FALSE){
+  if(Tropicalis==TRUE){
+    tst.expr <- data.frame(matrix(nrow = dim(ref.expr.Tropicalis)[1],ncol=dim(scdata)[2]))
+    rownames(tst.expr)<-rownames(ref.expr.Tropicalis)
+    colnames(tst.expr)<-colnames(scdata)
+  }
+  else{
+    tst.expr <- data.frame(matrix(nrow = dim(ref.expr)[1],ncol=dim(scdata)[2]))
+    rownames(tst.expr)<-rownames(ref.expr)
+    colnames(tst.expr)<-colnames(scdata)
+  }
+
   for (i in rownames(tst.expr)) {
     if(i%in%rownames(scdata))tst.expr[i,]<- scdata[i,]
   }
   tst.expr[is.na(tst.expr)]<-0
   tst.expr<-as.matrix(t(t(tst.expr)/colSums(tst.expr))*100000)
   tst.expr<-log(tst.expr+1)
-  cors <- cor(log(ref.expr+1),tst.expr)
+  if(Tropicalis==TRUE){
+    cors <- cor(log(ref.expr.Tropicalis+1),tst.expr)
+  }
+  else{
+    cors <- cor(log(ref.expr+1),tst.expr)
+  }
 
   cors_index <- apply(cors,2,gettissue,numbers_plot)
   cors_index <- sort(unique(as.integer(cors_index)))
@@ -51,6 +65,7 @@ gettissue <- function(x,Num=3){
 #' @export
 plotXCL <- function(XCL_result,interactive_plot=F, numbers_plot=3, col_font_size = 1, row_font_size=8, show_col=T,show_bar=T, show_tree = T){
   data(ref.expr)
+  data(red.expr.tropicalis)
   cors <- XCL_result$cors_matrix
   cors_index <- apply(cors,2,gettissue,numbers_plot)
   cors_index <- sort(unique(as.integer(cors_index)))

@@ -5,12 +5,14 @@
 \title{Xenopus Cell Landscape mapping
 description}
 \usage{
-scXCL(scdata, numbers_plot = 3)
+scXCL(scdata, numbers_plot = 3, Tropicalis = FALSE)
 }
 \arguments{
 \item{scdata}{data.frame or matrix, col correspond to cells and rows correspond to genes}
 
 \item{numbers_plot}{default is 3, number, it will return top "numbers_plot" records in the plot}
+
+\item{Tropicalis}{Set to TRUE to select Xenopus tropicalis; default is FALSE, which selects Xenopus laevis for input data}
 }
 \description{
 Xenopus Cell Landscape mapping
