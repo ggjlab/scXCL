@@ -27,6 +27,9 @@ library(scXCL)
 # scXCL has two parameters , single cell expression matrix(scdata) and 
 # the number of most similar cell types
 > XCL_result <- scXCL(scdata = xcl_skin, numbers_plot = 3)
+
+# If the inpout gene is from Xenopus tropicalis, please set the parameter Tropicalis to TRUE (default is FALSE).
+> XCL_result <- scXCL(scdata = xcl_skin, numbers_plot = 3, Tropicalis=TRUE)
 ```
 
 The return of scXCL() is a list which contains 4 parts.
