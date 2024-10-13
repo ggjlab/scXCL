@@ -32,8 +32,8 @@ library(scXCL)
 The return of scXCL() is a list which contains 4 parts.
 * cors_matrix: Pearson correlation coefficient matrix of each cell and cell type.
 * top_cors: equals to numbers_plot
-* scHCL: the most relevant cell type for each query cell
-* scHCL_probility: the top n relevant cell types for each query cell
+* scXCL: the most relevant cell type for each query cell
+* scXCL_probility: the top n relevant cell types for each query cell
 
 ```R
 # open shiny for visualize result for scXCL
